@@ -3,5 +3,5 @@
     "agent": "agent.py"
   },
   "env": [],
-  "dependencies": ["langgraph", "langchain-core", "langchain-anthropic", "langchain-community"]
+  "dependencies": ["langgraph", "langchain-core", "langchain-openai", "langchain-community"]
 }

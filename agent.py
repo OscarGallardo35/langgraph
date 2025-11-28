@@ -5,7 +5,7 @@ def get_weather(city: str) -> str:
     return f"It's always sunny in {city}!"
 
 agent = create_react_agent(
-    model="anthropic:claude-3-7-sonnet-latest",
+    model="gpt-4o",
     tools=[get_weather],
     prompt="You are a helpful assistant"
 )
