@@ -12,4 +12,4 @@ RUN pip install -e libs/cli
 
 EXPOSE 8000
 
-CMD ["langgraph", "serve"]
+CMD ["langgraph", "dev"]
