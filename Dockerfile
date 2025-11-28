@@ -9,6 +9,7 @@ COPY . .
 
 RUN pip install -e libs/sdk-py
 RUN pip install -e libs/cli
+RUN pip install langgraph-api
 
 EXPOSE 8000
 
