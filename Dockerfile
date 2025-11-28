@@ -13,4 +13,4 @@ RUN pip install langgraph-api
 
 EXPOSE 8000
 
-CMD ["langgraph", "dev"]
+CMD ["langgraph", "dev", "--host", "0.0.0.0"]
