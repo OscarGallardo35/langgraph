@@ -8,7 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 RUN pip install -e libs/sdk-py
+RUN pip install -e libs/cli
 
 EXPOSE 8000
 
-CMD ["python", "-m", "langgraph_sdk.server"]
+CMD ["langgraph", "serve"]
