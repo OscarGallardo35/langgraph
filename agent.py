@@ -1,4 +1,4 @@
-from langgraph.prebuilt import create_react_agent, create_supervisor
+from langgraph.prebuilt import create_react_agent
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
 
@@ -19,24 +19,9 @@ def calculate(expression: str) -> str:
 # Modelo
 llm = ChatOpenAI(model="gpt-4o")
 
-# Agentes especializados
-weather_agent = create_react_agent(
+# Agente multi-herramienta (simula multi-agente delegando tareas)
+agent = create_react_agent(
     model=llm,
-    tools=[get_weather],
-    name="weather_agent",
-    prompt="Eres un agente de clima. Responde solo sobre clima."
-)
-
-math_agent = create_react_agent(
-    model=llm,
-    tools=[calculate],
-    name="math_agent",
-    prompt="Eres un agente de matemáticas. Responde solo sobre cálculos."
-)
-
-# Supervisor
-agent = create_supervisor(
-    [weather_agent, math_agent],
-    model=llm,
-    prompt="Eres un supervisor. Delega tareas a los agentes apropiados: weather_agent para clima, math_agent para cálculos."
+    tools=[get_weather, calculate],
+    prompt="Eres un asistente multi-tarea. Usa get_weather para consultas de clima y calculate para cálculos matemáticos. Delega la tarea apropiada."
 )
